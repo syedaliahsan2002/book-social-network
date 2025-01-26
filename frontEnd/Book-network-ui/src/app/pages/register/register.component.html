@@ -1,0 +1,49 @@
+<div class="container-fluid card login-container mt-5">
+    <h3 class="text-center">create an Account</h3>
+    <hr>
+    <div class="alert alert-danger" role="alert" *ngIf="errorMsg.length">
+        <p *ngFor="let msg of errorMsg">{{ msg }}</p>
+    </div>
+  
+    <div class="mb-3">
+        <label for="firstname" class="form-label">First Name</label>
+        <div class="input-group">
+            <span class="input-group-text"><em class="fas fa-person"></em></span>
+            <input [(ngModel)]="registerRequest.firstname" type="text" class="form-control" id="firstname" placeholder="Jhon">
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="lastname" class="form-label">last Name</label>
+        <div class="input-group">
+            <span class="input-group-text"><em class="fas fa-person"></em></span>
+            <input [(ngModel)]="registerRequest.lastname" type="text" class="form-control" id="lastname" placeholder="Doe">
+        </div>
+    </div>
+        <div class="mb-3">
+            <label for="login" class="form-label">Email address</label>
+            <div class="input-group">
+                <span class="input-group-text"><em class="fas fa-envelope"></em></span>
+                <input [(ngModel)]="registerRequest.email" type="email" class="form-control" id="login" placeholder="name@example.com">
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <div class="input-group">
+                <span class="input-group-text"><em class="fas fa-lock"></em></span>
+                <input [(ngModel)]="registerRequest.password" type="password" class="form-control" id="password" placeholder="*********">
+            </div>
+        </div>
+        <div class="d-flex justify-content-between mb-3">
+            <button (click)="register()" type="button" class="btn btn-primary">
+                <em class="fas fa-user-plus"></em>&nbsp; Register
+            </button>
+            <div>
+                Already have an account? &nbsp;
+              
+                <button (click)="login()" type="button" class="btn btn-link">
+                    <em class="fas fa-sign-in-alt"></em>&nbsp; Log in
+                </button>
+            </div>
+        </div>
+
+</div>

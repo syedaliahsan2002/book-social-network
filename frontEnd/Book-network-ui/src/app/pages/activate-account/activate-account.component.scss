@@ -1,0 +1,119 @@
+/* Main container styling */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+  
+    .text-center {
+      width: 400px;
+      padding: 20px;
+      background-color: #f8f9fa; /* Light background for code input area */
+      border-radius: 8px;
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    }
+  
+    /* Styling for the activation message */
+    .activate-message,
+    .activationError {
+      width: 400px;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+      background-color: #f8f9fa;
+  
+      h2 {
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        color: #333;
+      }
+  
+      p {
+        font-size: 1rem;
+        color: #666;
+        margin-bottom: 1.5rem;
+      }
+  
+      .btn {
+        font-size: 1rem;
+        padding: 10px 20px;
+        color: #fff;
+        border-radius: 5px;
+        text-transform: uppercase;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        &.btn-primary {
+          background-color: #007bff;
+          border: none;
+  
+          &:hover {
+            background-color: #0056b3;
+          }
+        }
+      }
+    }
+  
+    /* Success message styling */
+    .activate-message {
+      h2 {
+        color: #28a745; /* Green for success */
+      }
+    }
+  
+    /* Error message styling */
+    .activationError {
+      h2 {
+        color: #dc3545; /* Red for error */
+      }
+    }
+  
+    /* Code input styling */
+    code-input {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  
+      input {
+        width: 40px;
+        height: 50px;
+        margin: 0 5px;
+        text-align: center;
+        font-size: 1.5rem;
+        border: 2px solid #007bff; /* Primary color border */
+        border-radius: 5px;
+        transition: all 0.3s ease;
+  
+        &:focus {
+          border-color: #0056b3;
+          outline: none;
+          box-shadow: 0 0 5px rgba(0, 123, 255, 0.6);
+        }
+      }
+    }
+  }
+  
+  /* Media queries for responsive design */
+  @media (max-width: 768px) {
+    .container .text-center,
+    .activate-message,
+    .activationError {
+      width: 90%;
+      padding: 15px;
+    }
+  
+    h2 {
+      font-size: 1.5rem;
+    }
+  
+    code-input input {
+      width: 35px;
+      height: 45px;
+    }
+  
+    .btn {
+      padding: 8px 15px;
+    }
+  }
+  

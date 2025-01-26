@@ -1,0 +1,44 @@
+services:
+  mysql:
+    container_name: mysql-bsn
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: book_social_network
+    volumes:
+      - mysql-data:/var/lib/mysql
+    ports:
+      - "3307:3306"
+    networks:
+      - spring-demo
+    restart: unless-stopped
+
+  mail-dev:
+    container_name: mail-dev-bsn
+    image: maildev/maildev
+    ports:
+      - "1080:1080"
+      - "1025:1025"
+    networks:
+      - spring-demo
+
+  bsn-api:
+    container_name: bsn-api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: bsn/bsn:1.0.1
+    ports:
+      - "8088:8088"
+    networks:
+      - spring-demo
+    depends_on:
+      - mysql
+
+networks:
+  spring-demo:
+    driver: bridge
+
+volumes:
+  mysql-data:
+    driver: local

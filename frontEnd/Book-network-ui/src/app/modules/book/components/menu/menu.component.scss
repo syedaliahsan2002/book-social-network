@@ -1,0 +1,18 @@
+li >a{
+
+    &:hover{
+        background-color: #d6e5f1;
+        border-radius: 5px;
+        text-decoration: underline;
+
+    }
+    &.active{
+        color: #ffffff;
+        border-radius: 5px;
+        // background-color: #d6e5f1;
+    }
+    &.active:hover{
+        color: black;
+        background-color: #d6e5f1;
+    }
+}

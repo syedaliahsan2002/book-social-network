@@ -1,0 +1,25 @@
+# Ignore node_modules and dependencies
+node_modules
+npm-debug.log
+yarn.lock
+package-lock.json
+
+# Ignore environment files
+src/environments/*.ts
+
+# Ignore Angular build and test-related files
+dist
+out-tsc
+coverage
+
+# Ignore IDE and editor files
+.vscode
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Ignore OS and temporary files
+.DS_Store
+Thumbs.db
