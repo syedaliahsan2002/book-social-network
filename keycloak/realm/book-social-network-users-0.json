@@ -1,0 +1,98 @@
+{
+  "realm" : "book-social-network",
+  "users" : [ {
+    "id" : "cee32c01-47c1-442c-aaef-ee35b5a48e5e",
+    "username" : "ali@gmail.com",
+    "firstName" : "affan",
+    "lastName" : "ahmed",
+    "email" : "ali@gmail.com",
+    "emailVerified" : true,
+    "createdTimestamp" : 1738078029885,
+    "enabled" : true,
+    "totp" : false,
+    "credentials" : [ {
+      "id" : "2c8e33b4-9c66-493d-ba34-bd4260826274",
+      "type" : "password",
+      "userLabel" : "My password",
+      "createdDate" : 1738078589899,
+      "secretData" : "{\"value\":\"bXR9bhQ50qJrM0SsQCawqw4Y23Y0zEGwSFJJqdg//uY=\",\"salt\":\"wbgLXNOI31TosuV+RAcuAg==\",\"additionalParameters\":{}}",
+      "credentialData" : "{\"hashIterations\":5,\"algorithm\":\"argon2\",\"additionalParameters\":{\"hashLength\":[\"32\"],\"memory\":[\"7168\"],\"type\":[\"id\"],\"version\":[\"1.3\"],\"parallelism\":[\"1\"]}}"
+    } ],
+    "disableableCredentialTypes" : [ ],
+    "requiredActions" : [ ],
+    "realmRoles" : [ "default-roles-book-social-network" ],
+    "notBefore" : 0,
+    "groups" : [ "/USERS" ]
+  }, {
+    "id" : "d46a9cb2-bfbe-4e4d-979e-7032e083a77d",
+    "username" : "john@mail.com",
+    "firstName" : "john",
+    "lastName" : "doe",
+    "email" : "john@mail.com",
+    "emailVerified" : true,
+    "createdTimestamp" : 1740295903818,
+    "enabled" : true,
+    "totp" : false,
+    "credentials" : [ {
+      "id" : "5a58226e-d059-4025-82ac-0b8073e21829",
+      "type" : "password",
+      "createdDate" : 1740323859513,
+      "secretData" : "{\"value\":\"QPjWcrIRjtLwsEjZTG5WVom+gakFvgXmMB8ZmBr/zKQ=\",\"salt\":\"RnW7fk6vfIIJOpZeU1WBHg==\",\"additionalParameters\":{}}",
+      "credentialData" : "{\"hashIterations\":5,\"algorithm\":\"argon2\",\"additionalParameters\":{\"hashLength\":[\"32\"],\"memory\":[\"7168\"],\"type\":[\"id\"],\"version\":[\"1.3\"],\"parallelism\":[\"1\"]}}"
+    } ],
+    "disableableCredentialTypes" : [ ],
+    "requiredActions" : [ ],
+    "realmRoles" : [ "default-roles-book-social-network" ],
+    "notBefore" : 0,
+    "groups" : [ ]
+  }, {
+    "id" : "b74068c7-ca34-4659-9046-47752867b53f",
+    "username" : "syedaliahsan2002@gmail.com",
+    "firstName" : "Ali",
+    "lastName" : "Ahsan",
+    "email" : "syedaliahsan2002@gmail.com",
+    "emailVerified" : true,
+    "createdTimestamp" : 1740324658286,
+    "enabled" : true,
+    "totp" : false,
+    "credentials" : [ {
+      "id" : "1af1647a-2c02-4127-897f-a4b9efdbd768",
+      "type" : "password",
+      "createdDate" : 1740324658345,
+      "secretData" : "{\"value\":\"EeWSmdm5lEAJBBNoxB6iKzPtADIxKqpveKO0ReXQ2ww=\",\"salt\":\"SvIyjxbU+eNE04XWpLFgUA==\",\"additionalParameters\":{}}",
+      "credentialData" : "{\"hashIterations\":5,\"algorithm\":\"argon2\",\"additionalParameters\":{\"hashLength\":[\"32\"],\"memory\":[\"7168\"],\"type\":[\"id\"],\"version\":[\"1.3\"],\"parallelism\":[\"1\"]}}"
+    } ],
+    "disableableCredentialTypes" : [ ],
+    "requiredActions" : [ ],
+    "federatedIdentities" : [ {
+      "identityProvider" : "github",
+      "userId" : "131659152",
+      "userName" : "syedaliahsan2002"
+    } ],
+    "realmRoles" : [ "default-roles-book-social-network" ],
+    "notBefore" : 0,
+    "groups" : [ ]
+  }, {
+    "id" : "27b82b04-877d-4951-8b48-19449209b5cc",
+    "username" : "syedhuzaifaali1998@gmail.com",
+    "firstName" : "Syed",
+    "lastName" : "Huzaifa",
+    "email" : "syedhuzaifaali1998@gmail.com",
+    "emailVerified" : true,
+    "createdTimestamp" : 1740384873063,
+    "enabled" : true,
+    "totp" : false,
+    "credentials" : [ {
+      "id" : "5c4d94da-ff5f-4d5c-a237-a1d0b9708a71",
+      "type" : "password",
+      "createdDate" : 1740384873099,
+      "secretData" : "{\"value\":\"KhLJJKMw11fm24uw2YSifvtq4JFbAw69LmMURYhKrh0=\",\"salt\":\"2MYwmfLnLIJwXOzXQ1kjAQ==\",\"additionalParameters\":{}}",
+      "credentialData" : "{\"hashIterations\":5,\"algorithm\":\"argon2\",\"additionalParameters\":{\"hashLength\":[\"32\"],\"memory\":[\"7168\"],\"type\":[\"id\"],\"version\":[\"1.3\"],\"parallelism\":[\"1\"]}}"
+    } ],
+    "disableableCredentialTypes" : [ ],
+    "requiredActions" : [ ],
+    "realmRoles" : [ "default-roles-book-social-network" ],
+    "notBefore" : 0,
+    "groups" : [ ]
+  } ]
+}

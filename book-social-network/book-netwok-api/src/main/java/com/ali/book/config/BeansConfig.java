@@ -25,7 +25,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class BeansConfig {
 
-	private final UserDetailsService userDetailsService;
+	/*private final UserDetailsService userDetailsService;
 	@Bean
 	public AuthenticationProvider authenticationProvider() {
 		DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
@@ -39,13 +39,14 @@ public class BeansConfig {
 		return config.getAuthenticationManager();
 	}
 	
-	@Bean
-	public AuditorAware<Integer> auditorAware(){
-		return new ApplicationAuditAware();
-	}
+
 	@Bean
 	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
+	}*/
+	@Bean
+	public AuditorAware<String> auditorAware(){
+		return new ApplicationAuditAware();
 	}
 	@Bean
 	public CorsFilter corsFilter() {

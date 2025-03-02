@@ -38,9 +38,9 @@ import lombok.Setter;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Table(name = "user")
-@EntityListeners(AuditingEntityListener.class)
+//@Entity
+//@Table(name = "user")
+//@EntityListeners(AuditingEntityListener.class)
 public class User implements UserDetails, Principal{
 
 	/**

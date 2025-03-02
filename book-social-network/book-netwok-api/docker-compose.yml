@@ -22,28 +22,17 @@ services:
     networks:
       - spring-demo
 
-  bsn-api:
-    container_name: bsn-api
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: bsn/bsn:1.0.5
+  keycloak:
+    container_name: keycloak-bsn
+    image: quay.io/keycloak/keycloak:26.1.0
     ports:
-      - "8088:8088"
+      - "9090:8080"
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
     networks:
       - spring-demo
-    depends_on:
-      - mysql
-
-  bsn-ui:
-    container_name: bsn-ui
-    image: bsn/bsn-ui:1.0.7
-    ports:
-      - "8080:80"
-    networks:
-      - spring-demo
-    depends_on:
-      - bsn-api
+    command: "start-dev"
 
 networks:
   spring-demo:

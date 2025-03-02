@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+import { KeycloakService } from '../../../../services/keycloak/keycloak.service';
 
 @Component({
   selector: 'app-menu',
@@ -7,7 +8,10 @@ import { isPlatformBrowser } from '@angular/common';
   styleUrls: ['./menu.component.scss'] // corrected property name
 })
 export class MenuComponent implements OnInit {
-  constructor(@Inject(PLATFORM_ID) private platformId: any) {}
+
+  constructor(@Inject(PLATFORM_ID) private platformId: any,
+  private keycloakService: KeycloakService
+) {}
 
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
@@ -24,9 +28,12 @@ export class MenuComponent implements OnInit {
     }
   }
 
-  logout() {
+ async logout() {
     // Your logout logic here
-    localStorage.removeItem('token');
-    window.location.reload();
+    await this.keycloakService.logout();
   }
+ async accountManagment() {
+   await this.keycloakService.accountManagment();
+
+    }
 }

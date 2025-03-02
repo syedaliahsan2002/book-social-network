@@ -25,11 +25,11 @@ import jakarta.mail.MessagingException;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
-@Service
+//@Service
 @RequiredArgsConstructor
 public class AuthenticationService {
 	
-	private final PasswordEncoder passwordEncoder;
+	/*private final PasswordEncoder passwordEncoder;
 
 	private final RoleRepository roleRepository;
 	
@@ -154,5 +154,5 @@ public class AuthenticationService {
         userRepository.save(user);
         savedToken.setValidatedAt(LocalDateTime.now());
         tokenRepository.save(savedToken);
-    }
+    }*/
 }

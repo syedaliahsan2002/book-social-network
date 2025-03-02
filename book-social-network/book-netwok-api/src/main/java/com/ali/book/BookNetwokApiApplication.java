@@ -19,7 +19,7 @@ public class BookNetwokApiApplication {
 		SpringApplication.run(BookNetwokApiApplication.class, args);
 	}
 
-	@Bean
+/*	@Bean
 	public CommandLineRunner runner(RoleRepository roleRepository) {
 		return args ->{
 			if(roleRepository.findByName("USER").isEmpty()) {
@@ -27,6 +27,6 @@ public class BookNetwokApiApplication {
 						Role.builder().name("USER").build());
 			}
 		};
-	}
+	}*/
 
 }

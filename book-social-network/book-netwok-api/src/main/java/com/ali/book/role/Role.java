@@ -26,8 +26,8 @@ import lombok.Setter;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@EntityListeners(AuditingEntityListener.class)
+//@Entity
+//@EntityListeners(AuditingEntityListener.class)
 public class Role {
 
 	@jakarta.persistence.Id

@@ -8,10 +8,10 @@ import org.springframework.security.core.context.SecurityContextHolder;
 
 import com.ali.book.user.*;
 
-public class ApplicationAuditAware implements AuditorAware<Integer> {
+public class ApplicationAuditAware implements AuditorAware<String> {
 
 	@Override
-	public Optional<Integer> getCurrentAuditor() {
+	public Optional<String> getCurrentAuditor() {
 		// TODO Auto-generated method stub
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		if(authentication == null
@@ -19,8 +19,8 @@ public class ApplicationAuditAware implements AuditorAware<Integer> {
 				|| authentication instanceof AnonymousAuthenticationToken) {
 			return Optional.empty();
 		}
-		User userPrincipal = (User) authentication.getPrincipal();
-		return Optional.ofNullable(userPrincipal.getId());
+	//	User userPrincipal = (User) authentication.getPrincipal();
+		return Optional.ofNullable(authentication.getName());
 	}
 
 }

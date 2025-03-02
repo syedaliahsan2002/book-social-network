@@ -17,13 +17,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 
-@RestController
-@RequestMapping("auth")
+//@RestController
+//@RequestMapping("auth")
 @RequiredArgsConstructor
 @Tag(name = "Authentication")
 public class AuthenticationController {
 
-	private final AuthenticationService service;
+	/*private final AuthenticationService service;
 	
 	@PostMapping("/register")
 	@ResponseStatus(HttpStatus.ACCEPTED)
@@ -51,5 +51,5 @@ public class AuthenticationController {
 	    public ResponseEntity<?> resetPassword(@RequestParam String token, @RequestParam String newPassword) {
 	        service.resetPassword(token, newPassword);
 	        return ResponseEntity.ok().build();
-	    }
+	    }*/
 }

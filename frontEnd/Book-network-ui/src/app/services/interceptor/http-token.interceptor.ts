@@ -40,15 +40,16 @@ import {
  } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { TokenService } from "../token/token.service";
+import { KeycloakService } from "../keycloak/keycloak.service";
 
 @Injectable()
 export class HttpTokenInterceptor implements HttpInterceptor {
   constructor(
-    private tokenService: TokenService
+    private keycloakService: KeycloakService
   ) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    const token: string = this.tokenService.token;
+    const token: string | undefined = this.keycloakService.keycloak.token;
 
     // Clone request and set the Authorization header only if a token is available
     const authReq = token 
@@ -59,3 +60,28 @@ export class HttpTokenInterceptor implements HttpInterceptor {
   }
 }
 
+// import { Injectable } from "@angular/core";
+// import { 
+//   HttpRequest,
+//   HttpEvent,
+//   HttpInterceptor,
+//   HttpHandler
+// } from "@angular/common/http";
+// import { Observable } from "rxjs";
+// import { KeycloakService } from "../keycloak/keycloak.service";
+
+// @Injectable()
+// export class HttpTokenInterceptor implements HttpInterceptor {
+//   constructor(private keycloakService: KeycloakService) {}
+
+//   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+//     const token: string | undefined = this.keycloakService.getToken();
+
+//     // Clone request and set Authorization header if token is available
+//     const authReq = token 
+//       ? request.clone({ setHeaders: { Authorization: `Bearer ${token}` } })
+//       : request;
+
+//     return next.handle(authReq);
+//   }
+// }

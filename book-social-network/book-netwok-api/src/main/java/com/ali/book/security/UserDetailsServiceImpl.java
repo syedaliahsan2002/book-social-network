@@ -10,11 +10,11 @@ import com.ali.book.user.UserRepository;
 
 import lombok.RequiredArgsConstructor;
 
-@Service
-@RequiredArgsConstructor
-public class UserDetailsServiceImpl implements UserDetailsService{
+//@Service
+//@RequiredArgsConstructor
+public class UserDetailsServiceImpl{// implements UserDetailsService{
 
-	private final UserRepository repository;
+/*	private final UserRepository repository;
 	@Override
 	@Transactional
 	public UserDetails loadUserByUsername(String userEmail) throws UsernameNotFoundException {
@@ -22,5 +22,5 @@ public class UserDetailsServiceImpl implements UserDetailsService{
 		return repository.findByEmail(userEmail)
 				.orElseThrow(() -> new UsernameNotFoundException("User not Found"));
 	}
-
+*/
 }
