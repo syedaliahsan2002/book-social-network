@@ -58,9 +58,9 @@ export class KeycloakService {
 
     if (!this._keycloak) {
       this._keycloak = new Keycloak({
-        url: 'http://localhost:9090',
+        url: 'https://penguin-constitutes-responsible-writing.trycloudflare.com',
         realm: 'book-social-network',
-        clientId: 'bsn'
+        clientId: 'book-network-ui'
       });
     }
     return this._keycloak;
@@ -80,7 +80,9 @@ export class KeycloakService {
     console.log("Initializing Keycloak...");
     try {
       const authenticated = await this.keycloak.init({
-        onLoad: 'login-required'
+        onLoad: 'login-required',
+        checkLoginIframe: false,
+        pkceMethod: 'S256'
       });
 
       if (authenticated) {
@@ -97,6 +99,9 @@ export class KeycloakService {
 
   login(){
     return this.keycloak?.login();
+  }
+  register(){
+    return this.keycloak?.register();
   }
   logout(){
     return this.keycloak?.logout();

@@ -47,13 +47,14 @@
         </button>
         <span class="text-white">Welcome,</span>
         <span class="text-capitalize fw-bold text-white">user</span>
-        <button class="btn btn-link text-white" type="button" (click)="logout()">
-          <i class="fas fa-door-open"></i>
-          
+        <button class="btn btn-link text-white" type="button" (click)="register()" title="Register new account">
+          <i class="fas fa-user-plus"></i>
         </button>
-        <button class="btn btn-link text-white" type="button" (click)="accountManagment()">
+        <button class="btn btn-link text-white" type="button" (click)="logout()" title="Logout">
+          <i class="fas fa-door-open"></i>
+        </button>
+        <button class="btn btn-link text-white" type="button" (click)="accountManagment()" title="Account settings">
           <i class="fas fa-user-cog"></i>
-          
         </button>
       </form>
     </div>

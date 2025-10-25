@@ -10,7 +10,7 @@ COPY package*.json ./
 RUN npm install
 
 # Run Angular Compilation with Ivy
-RUN npx ngcc --production es2023 browser module main --first-only -create-ivy-entry-points
+# RUN npx ngcc --production es2023 browser module main --first-only -create-ivy-entry-points
 
 # Copy all source files
 COPY . .

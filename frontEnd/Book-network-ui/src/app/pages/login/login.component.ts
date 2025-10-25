@@ -22,8 +22,7 @@ export class LoginComponent implements OnInit {
     private keycloakService: KeycloakService
   ) {}
   async ngOnInit(): Promise<void> {
-  this.keycloakService.init();
-   this.keycloakService.login();
+    // Auth is handled at app bootstrap via APP_INITIALIZER
   }
 
   // register() {

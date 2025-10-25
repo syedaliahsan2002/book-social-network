@@ -6,8 +6,10 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value=""/>
+		<item key="selection" value="findAllBooksbyOwner"/>
 		<list key="findhistory">
+			<item value="findAllBooksbyOwner"/>
+			<item value="findallboo"/>
 			<item value="findBookById"/>
 		</list>
 		<list key="replacehistory">

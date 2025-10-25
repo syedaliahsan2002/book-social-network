@@ -1,0 +1,12 @@
+{
+  "clientId": "book-network-ui",
+  "protocol": "openid-connect",
+  "publicClient": true,
+  "directAccessGrantsEnabled": false,
+  "standardFlowEnabled": true,
+  "redirectUris": [
+    "https://requirements-viewer-competent-alice.trycloudflare.com/*",
+    "http://localhost:8080/*"
+  ],
+  "webOrigins": ["*"]
+}

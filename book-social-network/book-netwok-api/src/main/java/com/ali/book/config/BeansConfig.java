@@ -53,11 +53,15 @@ public class BeansConfig {
 		final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 		final CorsConfiguration config = new CorsConfiguration();
 		config.setAllowCredentials(true);
-		config.setAllowedOrigins(List.of("http://localhost:4200","http://localhost:8080"));
+		// Allow all origins (reflects the request Origin) to support dynamic tunnel domains
+		config.setAllowedOriginPatterns(List.of("*"));
 		config.setAllowedHeaders(Arrays.asList(
 				HttpHeaders.ORIGIN,
 				HttpHeaders.CONTENT_TYPE,
 				HttpHeaders.ACCEPT,
+				HttpHeaders.AUTHORIZATION
+				));
+		config.setExposedHeaders(Arrays.asList(
 				HttpHeaders.AUTHORIZATION
 				));
 		config.setAllowedMethods(Arrays.asList(
@@ -65,7 +69,8 @@ public class BeansConfig {
 				"POST",
 				"DELETE",
 				"PUT",
-				"PATCH"
+				"PATCH",
+				"OPTIONS"
 				));
 		source.registerCorsConfiguration( "/**", config);
 		return new CorsFilter(source);

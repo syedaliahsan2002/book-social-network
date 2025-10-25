@@ -1,0 +1,55 @@
+name: Docker - Build and Publish
+
+on:
+  push:
+    branches: [ main, master ]
+    tags: ['v*.*.*']
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set image tags
+        id: vars
+        run: |
+          OWNER=$(echo "${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]')
+          echo "owner=${OWNER}" >> $GITHUB_OUTPUT
+          echo "sha_tag=${{ github.sha }}" >> $GITHUB_OUTPUT
+          if [[ "${{ github.ref }}" == refs/heads/* ]]; then
+            echo "is_main=$([[ '${{ github.ref_name }}' == 'main' || '${{ github.ref_name }}' == 'master' ]] && echo true || echo false)" >> $GITHUB_OUTPUT
+          else
+            echo "is_main=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Build & Push Backend Image
+        uses: docker/build-push-action@v6
+        with:
+          context: ./book-social-network/book-netwok-api
+          file: docker/backend/Dockerfile
+          push: true
+          tags: |
+            ghcr.io/${{ steps.vars.outputs.owner }}/book-backend:${{ steps.vars.outputs.sha_tag }}
+            ${{ steps.vars.outputs.is_main == 'true' && format('ghcr.io/{0}/book-backend:latest', steps.vars.outputs.owner) || '' }}
+
+      - name: Build & Push Frontend Image
+        uses: docker/build-push-action@v6
+        with:
+          context: ./frontEnd/Book-network-ui
+          file: docker/frontend/Dockerfile
+          push: true
+          tags: |
+            ghcr.io/${{ steps.vars.outputs.owner }}/book-frontend:${{ steps.vars.outputs.sha_tag }}
+            ${{ steps.vars.outputs.is_main == 'true' && format('ghcr.io/{0}/book-frontend:latest', steps.vars.outputs.owner) || '' }}

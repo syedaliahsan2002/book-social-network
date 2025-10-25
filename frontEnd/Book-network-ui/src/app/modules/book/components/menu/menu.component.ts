@@ -28,12 +28,14 @@ export class MenuComponent implements OnInit {
     }
   }
 
- async logout() {
-    // Your logout logic here
+  async register() {
+    await this.keycloakService.register();
+  }
+
+  async logout() {
     await this.keycloakService.logout();
   }
- async accountManagment() {
-   await this.keycloakService.accountManagment();
-
-    }
+  async accountManagment() {
+    await this.keycloakService.accountManagment();
+  }
 }

@@ -11,7 +11,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class ApiConfiguration {
-  rootUrl: string = 'http://localhost:8088/api/v1';
+  // Use Nginx proxy path; works in all environments behind our container
+  rootUrl: string = '/api/v1';
 }
 
 /**

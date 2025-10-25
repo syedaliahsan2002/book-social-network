@@ -1,0 +1,7 @@
+{
+  "redirectUris": [
+    "http://localhost:8080/*",
+    "https://belief-honolulu-plasma-intelligence.trycloudflare.com/*"
+  ],
+  "webOrigins": ["*"]
+}
