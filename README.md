@@ -73,3 +73,37 @@ If this repo isn’t already on GitHub:
   git push -u origin main
 
 Or provide your GitHub username and a Personal Access Token with repo scope and I can push for you.
+
+## Refreshing Cloudflare Quick Tunnels after restart
+
+Quick Tunnels change URL on each restart. To relaunch and rewire:
+
+1) Start tunnels and copy new URLs
+```powershell path=null start=null
+docker compose -f docker-compose.prod.yml up -d cloudflared-app cloudflared-api cloudflared-auth
+docker logs -n 50 cloudflared-app   # copy new FRONTEND URL (https://...trycloudflare.com)
+docker logs -n 50 cloudflared-auth  # copy new AUTH/KEYCLOAK URL (https://...trycloudflare.com)
+```
+
+2) Update Keycloak client redirect URIs (UI)
+- Open https://NEW_AUTH/admin → realm "book-social-network" → Clients → book-network-ui → Settings
+- Add https://NEW_FRONTEND/* to Valid Redirect URIs (remove old) → Save
+
+3) Update backend issuer and restart API
+- Edit `docker-compose.prod.yml` (service `bsn-api`):
+  - `SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER_URI: http://NEW_AUTH/realms/book-social-network`
+```powershell path=null start=null
+docker compose -f docker-compose.prod.yml up -d bsn-api
+```
+
+4) Update frontend Keycloak URL and rebuild
+- Edit `frontEnd/Book-network-ui/src/app/services/keycloak/keycloak.service.ts`:
+  - `url: 'https://NEW_AUTH'`
+```powershell path=null start=null
+docker compose -f docker-compose.prod.yml build bsn-frontend
+docker compose -f docker-compose.prod.yml up -d bsn-frontend
+```
+
+Tips to avoid rotation:
+- Use real DNS + Traefik/Let’s Encrypt, or Cloudflare Named Tunnels on your domain.
+- For local-only work: http://localhost:8080 (frontend), http://localhost:8088/api/v1 (API), http://localhost:9090 (Keycloak).
