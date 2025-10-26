@@ -58,7 +58,7 @@ export class KeycloakService {
 
     if (!this._keycloak) {
       this._keycloak = new Keycloak({
-        url: 'https://urge-apart-ted-approximate.trycloudflare.com',
+        url: 'https://penguin-constitutes-responsible-writing.trycloudflare.com',
         realm: 'book-social-network',
         clientId: 'book-network-ui'
       });

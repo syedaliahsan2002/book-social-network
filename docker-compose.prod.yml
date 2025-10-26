@@ -72,7 +72,7 @@ services:
       # Prefer internal JWK set URI to avoid external discovery issues
       SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWK_SET_URI: http://keycloak-bsn:8080/realms/book-social-network/protocol/openid-connect/certs
       # Override issuer-uri from application-dev.yml to match tokens from Keycloak tunnel
-      SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER_URI: http://urge-apart-ted-approximate.trycloudflare.com/realms/book-social-network
+      SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER_URI: http://penguin-constitutes-responsible-writing.trycloudflare.com/realms/book-social-network
     depends_on:
       - mysql
       - keycloak

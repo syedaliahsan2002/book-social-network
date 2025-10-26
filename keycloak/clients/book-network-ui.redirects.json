@@ -1,7 +1,7 @@
 {
   "redirectUris": [
     "http://localhost:8080/*",
-    "https://reuters-makeup-trailers-balance.trycloudflare.com/*"
+    "https://belief-honolulu-plasma-intelligence.trycloudflare.com/*"
   ],
   "webOrigins": ["*"]
 }
